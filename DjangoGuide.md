@@ -1,8 +1,8 @@
-### Create virtual Environment
+#### Create virtual Environment
 conda create --name anyname
-### to activate
+#### To activate virtual Environment
 conda activate anyname //djnago3
-### to deactivate
+#### To deactivate Virtual Environment
 conda deactivate
 ### Create new project
 django-admin startproject ProjectName
@@ -18,10 +18,22 @@ python manage.py startapp AppName
 from django.http import HttpResponse
 
 ### Define url name for view
-form course import views
+###### Using urls.py of innerproject
+from app import views
 -->innerProject-->urls.py-->URL_PATTERNS: add path('route/',views_path)
 path(route,views,kwargs=None,name=None)
 
+If views from multiple application are used any of below methods can be used:
+1.from app import views as anyname
+2. from app.views import function_name
+
+###### using urls.py inside application
+syntax for include():
+include(module,namespace=None) or include(pattern_list) or include((pattern_list, app_namespace),namespace=None)
+
+>create urls.py file in application
+>write all url pattern in urls.py file
+>include applications urls.py file in urls.py of innerProject
 ### STRUCTURE OF DJANGO PROJECT
 root directory : folder containg manage.py 
 inner project folder: same folder under root directory
@@ -55,7 +67,9 @@ views.py:::used to create view(all business logic)
 >create app
 >add/install app in project
 >create a view
->add url path of view
+>add url path of view:
+    inside application and register in innerProject (if separate urls.py is used for each application)
+>
 
-######EXTRA NOTES
+###### EXTRA NOTES
 f string in python is like using $ in c#
