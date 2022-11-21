@@ -5,6 +5,10 @@ from django.http import HttpResponse
 def home_page(request):
     return render(request,'course/home.html')
 def django_tutorial(request):
-    return render(request,'course/tutorial.html')
+    cname='Djnago'
+    duration='4 months'
+    seats=20
+    courseinfo={'cn':cname,'du':duration,'sa':seats}
+    return render(request,'course/tutorial.html',courseinfo)
 def django_project(request):
     return render(request,'course/project.html')
