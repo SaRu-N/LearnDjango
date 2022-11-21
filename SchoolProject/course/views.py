@@ -3,8 +3,8 @@ from django.http import HttpResponse
 
 # Create your views here.
 def home_page(request):
-    return HttpResponse('This is the homepage of the django project')
+    return render(request,'home.html')
 def django_tutorial(request):
-    return HttpResponse('Welcome to Django Tutorial')
+    return render(request,'tutorial.html')
 def django_project(request):
-    return HttpResponse('<h4>Welcome to Django Project</h4>')
+    return render(request,'project.html')
