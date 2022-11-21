@@ -15,6 +15,8 @@ conda deactivate
 >
 >- create template folder in root directory
 >
+>- create separate for each applications inside templates
+>
 >- add templates directory in settings.py
 >
 >- create a view
