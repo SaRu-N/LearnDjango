@@ -23,13 +23,19 @@ conda deactivate
 >
 >- add templates directory in settings.py
 >
+>- create static folder in root project folder
+>
+>- create static files inside their respective folders in static
+>
+>- add static directory in settings.py
+>
 >- create a view
 >
 >- add url path of view:
 >
 >- inside application and register in innerProject (if separate urls.py is used for each application)
 >
->  
+>
 
 ### Create new project
 django-admin startproject ProjectName
@@ -74,7 +80,7 @@ include(module,namespace=None) or include(pattern_list) or include((pattern_list
 
 ### Adding Template directory
 
--->seetings.py::: create variable TEMPLTES_DIR= [BASE_DIR / 'templates']
+-->settings.py::: create variable TEMPLATES_DIR= [BASE_DIR / 'templates']
 
 find list TEMPLATES[
 
@@ -83,6 +89,16 @@ find list TEMPLATES[
 ]
 
 can directly write "[BASE_DIR / 'templates']" in 'DIRS'
+
+### Adding Static directory
+
+-->settings.py::: find list STATIC_URL  and Add STATICFILES_DIRS= [BASE_DIR / 'static']
+
+#### using static files in templates
+
+> first load static files     {%load static%} in the beginning
+>
+> reference static files <link href='{%static "filepath"%}'>  whenever needed
 
 ### STRUCTURE OF DJANGO PROJECT
 root directory : folder containg manage.py 

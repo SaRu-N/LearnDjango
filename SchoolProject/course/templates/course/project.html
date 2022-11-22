@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body{
-            background-color : ghostwhite;
-        }
-      
-    </style>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'course/css/style.css'%}">
     <title>Django Tutorial</title>
 </head>
 <body>
     <h1>Welcome to Django Project</h1>
+<form>
+    <input type="button" value="Click Here" onclick="view()"/>
+</form>
+<script src="{% static 'course/js/new.js' %}"></script>
 </body>
 </html>
