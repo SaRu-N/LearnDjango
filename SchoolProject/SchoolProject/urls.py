@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 # from course import views 
-from fees import views
+from main_site import views
 
 urlpatterns = [
     # default view 
+    path('',views.home_page),
+    path('info/',views.info),
     path('admin/', admin.site.urls),
-   path('course/',include('course.urls')),
+    path('course/',include('course.urls')),
     path('fees/',include('fees.urls'))
 ]

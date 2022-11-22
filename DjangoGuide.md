@@ -5,7 +5,7 @@ conda activate anyname //djnago3
 #### To deactivate Virtual Environment
 conda deactivate
 
-# STEPS To work in django project 
+# Steps to work in django project 
 
 >- create project
 >
@@ -13,9 +13,13 @@ conda deactivate
 >
 >- add/install app in project
 >
->- create template folder in root directory
+>- create templates folder in root directory or create templates folder inside every application
 >
->- create separate for each applications inside templates
+>- create folder having same name as app
+>
+>- add files
+>
+>- create separate for each applications inside templates (if common templates folder is used)
 >
 >- add templates directory in settings.py
 >
