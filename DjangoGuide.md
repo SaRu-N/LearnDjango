@@ -100,7 +100,14 @@ can directly write "[BASE_DIR / 'templates']" in 'DIRS'
 >
 > reference static files <link href='{%static "filepath"%}'>  whenever needed
 
+### Template Inheritance in Django
+
+##### Creating Parent Templates and Child Templates
+
+
+
 ### STRUCTURE OF DJANGO PROJECT
+
 root directory : folder containg manage.py 
 inner project folder: same folder under root directory
 
@@ -130,7 +137,5 @@ models.py::: used to create the model class
 tests.py::: used to create test cases
 
 views.py:::used to create view(all business logic)
->- 
-
 ###### EXTRA NOTES
 f string in python is like using $ in c#

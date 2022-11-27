@@ -11,3 +11,6 @@ def django_tutorial(request):
     return render(request,'course/tutorial.html',courseinfo)
 def django_project(request):
     return render(request,'course/project.html')
+
+def django_info(request):
+    return render(request,'course/info.html')

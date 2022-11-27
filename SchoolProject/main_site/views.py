@@ -5,3 +5,5 @@ def home_page(request):
     return render(request,'main/home.html')
 def info(request):
     return render(request,'main/info.html')
+def about_page(request):
+    return render(request,'main/about.html')
