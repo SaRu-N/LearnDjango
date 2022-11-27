@@ -100,9 +100,31 @@ can directly write "[BASE_DIR / 'templates']" in 'DIRS'
 >
 > reference static files <link href='{%static "filepath"%}'>  whenever needed
 
-### Template Inheritance in Django
+#### Create Hyberlink using url tag
 
-##### Creating Parent Templates and Child Templates
+without using url tag
+
+> `<a href="/anyname">AnyName</a>`
+>
+> can use dynamic href value
+>
+> `<a href="{{an}}">AnyName</a>` 
+>
+> where `an` must come from function as:
+>
+> `def anyname(request):`
+>
+> `return render(request,'html',{'an':'/anyname})`
+
+using url tag
+
+> provide value for Name argument in path()
+>
+> use same name in url tag to create hyperlink
+>
+> ​	`<a href="{%url'urlname' %}">AnyName</a>`
+>
+> 
 
 
 

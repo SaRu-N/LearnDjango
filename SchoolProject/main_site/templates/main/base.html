@@ -14,24 +14,7 @@
     {% endblock css %}
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'djangohome' %}">School Project</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="{% url 'djangohome' %}">Home</a>
-              <!-- <a class="nav-link" href="#">Features</a> -->
-              <a class="nav-link" href="{% url 'aboutdjango' %}">About</a>
-              <a class="nav-link" href="{% url 'courseinfo' %}">Course Info</a>
-              <a class="nav-link" href="{% url 'studenthome' %}">Student</a>
-
-            </div>
-          </div>
-        </div>
-      </nav>
+{% include 'main/navbar.html'%}
         
     {% block content %}<p> I am learning Django</p>{% endblock content %}
     <script src="{% static 'main/js/jquery.js' %}"></script>
