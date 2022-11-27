@@ -1,16 +1,8 @@
+{% extends 'main/base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content%}
 
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'course/css/style.css'%}">
-    <title>Django Tutorial</title>
-</head>
-<body>
-    <h1>Welcome to Django Tutorial</h1>
-    <h3>Course Name: {{cn}}<br> Duration:{{du}}<br>Seats Available:{{sa}}</h3>
-</body>
-</html>
+<h1>Welcome to Django Tutorial</h1>
+<h3>Course Name: {{cn}}<br> Duration:{{du}}<br>Seats Available:{{sa}}</h3>
+{% endblock content %}
+   

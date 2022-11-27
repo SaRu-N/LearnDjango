@@ -2,4 +2,8 @@
 {% block title %}Home{% endblock title %}
 {% block content%}
 <h1>I am home page</h1>
+<!-- f value is not displayed if only is used-->
+<!-- {% include 'main/topcourse.html' with p="PHP" only%} -->
+{% include 'main/topcourse.html' with p="PHP"%}
+
 {% endblock content %}
