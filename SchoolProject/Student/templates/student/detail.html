@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Student{% endblock title %}
+{% block css %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'course/css/student.css' %}"/>
+{% endblock css %}
+{% block content%}
+<h1>Students Detail </h1>
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+    </tr>
+    <tr>
+        <td>{{fn}}</td>
+        <td>{{ln}}</td>
+        <td>{{a}}</td>
+    </tr>
+</table>
+{% endblock content %}
+{%block button%}
+{%endblock button%}
