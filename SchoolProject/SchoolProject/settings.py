@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'fees',
     'result',
     'main_site',
+    'Student',
 ]
 
 MIDDLEWARE = [

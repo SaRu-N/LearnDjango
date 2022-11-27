@@ -20,11 +20,12 @@ from main_site import views
 
 urlpatterns = [
     # default view 
-    path('',views.home_page),
+    path('',views.home_page,name='djangohome'),
     path('info/',views.info),
     path('admin/', admin.site.urls),
     path('course/',include('course.urls')),
     path('fees/',include('fees.urls')),
-    path('about/',views.about_page),
+    path('students/',include('Student.urls')),
+    path('about/',views.about_page,name="aboutdjango"),
 
 ]
