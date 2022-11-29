@@ -71,8 +71,19 @@ syntax:
 ##### writing code to get db data in views.py
 
 - import model class from models.py
-- inside function use all() method as
-  - `anyname=ModelClassName.objects.all()`
+
+- inside function use all() method a
+
+  `anyname=ModelClassName.objects.all()`
+
+##### register model
+
+- open admin.py file inside application folder
+- import model class 
+- `admin.site.register(ModelClassName)`
+- 
+
+
 
 #### Rendering Templates Files
 

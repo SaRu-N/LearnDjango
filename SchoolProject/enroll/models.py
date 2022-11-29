@@ -7,3 +7,7 @@ class Student(models.Model):
     stuemail=models.EmailField()
     stupass=models.CharField(max_length=10)
     comment=models.CharField(max_length=50,default='not available')
+    def __str__(self):
+        # return self.stuname
+        # we must convert int to string while using __str__ method
+        return str(self.stuid)
