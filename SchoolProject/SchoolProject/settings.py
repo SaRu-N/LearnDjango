@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'result',
     'main_site',
     'Student',
+    'enroll'
 ]
 
 MIDDLEWARE = [

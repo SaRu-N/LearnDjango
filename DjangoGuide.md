@@ -29,6 +29,8 @@ conda deactivate
 >
 >- add static directory in settings.py
 >
+>- create model class and implement them
+>
 >- create a view
 >
 >- add url path of view:
@@ -49,6 +51,22 @@ python manage.py startapp AppName
 -->AppName-->views.py:: def function_name(request):
                             return HttpResponse(html/variable/text)
 from django.http import HttpResponse
+
+### Create Model Class
+
+inside application folder-->models.py
+
+syntax: 
+
+`class ClassName(models.Model):`
+
+​	`field_name=models.FieldType(arg,options)`
+
+##### Use Model class
+
+- open settings.py
+- register the application
+- in terminal run `python manage.py makemigrations` and `python manage.py migrate`
 
 #### Rendering Templates Files
 
