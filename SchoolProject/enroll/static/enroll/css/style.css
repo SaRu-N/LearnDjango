@@ -1,0 +1,12 @@
+th,td {
+    border:1px black solid;
+    color:bisque;
+    text-align: center;
+}
+th{
+    color:black;
+}
+body{
+    background-color:cadetblue;
+}
+

@@ -1,0 +1,56 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Student{% endblock title %}
+{% block css %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'enroll/css/style.css' %}"/>
+{% endblock css %}
+{% block content%}
+
+{% if stu %}
+    <h1>Show data</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Student Id</th>
+            <th>Student Name</th>
+            <th>Student Email</th>
+            <th>Student password</th>
+            <th>Comment</th>
+        </tr>
+        {% for item in stu%}
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.stuid}}</td>
+            <td>{{item.stuname}}</td>
+            <td>{{item.stuemail}}</td>
+            <td>{{item.stupass}}</td>
+            <td>{{item.comment}}</td>
+        </tr>
+      {%endfor%}
+    </table>
+    <h5>displaying using get() method</h5>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Student Id</th>
+            <th>Student Name</th>
+            <th>Student Email</th>
+            <th>Student password</th>
+            <th>Comment</th>
+        </tr>
+        <tr>
+            <td>{{st.id}}</td>
+            <td>{{st.stuid}}</td>
+            <td>{{st.stuname}}</td>
+            <td>{{st.stuemail}}</td>
+            <td>{{st.stupass}}</td>
+            <td>{{st.comment}}</td>
+        </tr>
+    </table>
+{% else %}
+    <h1>No data</h1>
+{% endif %}
+{% endblock content %}
+{%block button%}
+{%endblock button%}

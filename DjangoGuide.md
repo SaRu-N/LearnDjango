@@ -68,6 +68,12 @@ syntax:
 - register the application
 - in terminal run `python manage.py makemigrations` and `python manage.py migrate`
 
+##### writing code to get db data in views.py
+
+- import model class from models.py
+- inside function use all() method as
+  - `anyname=ModelClassName.objects.all()`
+
 #### Rendering Templates Files
 
 views.py:: from django.shortcuts import render
