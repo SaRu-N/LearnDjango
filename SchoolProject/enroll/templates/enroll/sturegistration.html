@@ -8,36 +8,37 @@
 {% block content%}
 <h3>Student Registration</h3>
 <h6>using form</h6>
-<form>
+<form method="post" novalidate>
+{% csrf_token %}
 <table>
     {{form}}
 </table>
 <input type="submit" value ='Register'>
 </form>
-<h6>using form.as_p</h6>
+<!-- <h6>using form.as_p</h6>
 <form>
-    <!-- <table> -->
+    
         {{form.as_p}}
-    <!-- </table> -->
+  
     <input type="submit" value ='Register'>
 </form>
 <h6>using form.as_ul</h6>
 
 <form>
-        <!-- <table> -->
+       
             {{form.as_ul}}
-        <!-- </table> -->
+     
         <input type="submit" value ='Register'>
 </form>
 <h6>using form.name_of_field</h6>
 
 <form>
-    <!-- <table> -->
+
         {{form.stuname}}
         {{form.stuemail}}
-    <!-- </table> -->
+ 
     <input type="submit" value ='Register'>
-</form>
+</form> -->
 {% endblock content %}
 {%block button%}
 {%endblock button%}

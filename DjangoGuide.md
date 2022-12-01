@@ -179,7 +179,29 @@ using url tag
 >
 > 
 
+##### Get Django form data in terminal
 
+inside views.py
+
+example
+
+def formdata(request):
+
+​	if request.method=='POST':
+
+​		fm=FormClassName(request.POST)
+
+​		if fm.is_valid():
+
+​			print("form validated")
+
+​			print("anyname",fm.cleaned_data['fieldname'])
+
+​	else:
+
+​		fm=FormClassName()
+
+​	return render(request,'templatepath','dict')
 
 ### STRUCTURE OF DJANGO PROJECT
 
