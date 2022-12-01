@@ -83,7 +83,25 @@ syntax:
 - `admin.site.register(ModelClassName)`
 - 
 
+#### Create Django Form using Form Class
 
+- inside application create a file forms.py
+
+- -->forms.py create form class using
+
+  `from django import forms`
+
+  `class FormClassName(forms.Form):`
+
+  ​	`label=froms.FieldType()`
+
+  ​	`label froms.FieldType(label='display_label')`
+
+###### Display Form to user
+
+-  create an form object inside view.py 
+- pass that object to template file as a dict.
+- `form .forms import FormClass`
 
 #### Rendering Templates Files
 
