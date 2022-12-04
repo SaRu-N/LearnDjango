@@ -10,9 +10,21 @@
 <h6>using form</h6>
 <form method="post" novalidate>
 {% csrf_token %}
-<table>
-    {{form}}
-</table>
+{{form.non_field_errors}}
+{% for field in form%}
+    <div>
+    {{field.label_tag}} {{field}}  
+    <!-- this can also be used  -->
+    <!-- <span class="errorlist">{{field.errors|striptags}}</span> -->
+    {% for error in field.errors %}
+        <span class="errorlist">{{error}}</span>
+    {% endfor %}
+</div>
+{% endfor %} 
+
+<!-- using hooks
+<table>{{form}}</table> -->
+
 <input type="submit" value ='Register'>
 </form>
 <!-- <h6>using form.as_p</h6>
