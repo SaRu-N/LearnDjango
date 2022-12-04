@@ -64,3 +64,7 @@ class StudentRegistration(forms.Form):
     #         raise forms.ValidationError("Password must be of length greater than 8")
     #     return value
 
+class StudentSave(forms.Form):
+    name=forms.CharField(label="Name")
+    email=forms.EmailField(label="Email")
+    password=forms.CharField(widget=forms.PasswordInput)

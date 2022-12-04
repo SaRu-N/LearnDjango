@@ -11,3 +11,7 @@ class Student(models.Model):
     #     # return self.stuname
     #     # we must convert int to string while using __str__ method
     #     return str(self.stuid)
+class Savestudent(models.Model):
+    name=models.CharField(max_length=100)
+    email=models.EmailField(max_length=100)
+    password=models.CharField( max_length=100)

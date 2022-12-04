@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Student Save Form{% endblock title %}
+{% block css %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'enroll/css/style.css' %}"/>
+{% endblock css %}
+{% block content%}
+<h3>Student Registration</h3>
+<h6>using form</h6>
+<form method="post" novalidate>
+{% csrf_token %}
+<table>
+    {{form1}}
+</table>
+<input type="submit" value ='Register'>
+</form>
+
+{% endblock content %}
+{%block button%}
+{%endblock button%}

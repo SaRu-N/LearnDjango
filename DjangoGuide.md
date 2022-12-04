@@ -103,6 +103,12 @@ syntax:
 - pass that object to template file as a dict.
 - `form .forms import FormClass`
 
+##### Saving data in database using django form api
+
+- create model class and make related form
+- register model class in admins.py
+- 
+
 #### Rendering Templates Files
 
 views.py:: from django.shortcuts import render
