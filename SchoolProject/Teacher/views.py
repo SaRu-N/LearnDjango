@@ -3,6 +3,9 @@ from django.http import HttpResponseRedirect
 from . forms import TeacherRegistration
 from . models import Teacher
 # Create your views here.
+def Home(request, check):
+    print(check)
+    return render(request,'teacher/home.html', {'ch':check})
 def RegTeacher(request):
     if request.method=='POST':
       #adding pi as instance 
@@ -40,3 +43,28 @@ def RegTeacher(request):
         fm=TeacherRegistration()
 
     return render(request,'teacher/teacherReg.html' ,{"form":fm})
+
+# def show_details(request, my_id):
+#   return render(request,'teacher/detail.html',{'id':my_id})
+
+def show_details(request, my_id):
+  if my_id ==1:
+    teacher= {'id':my_id,'name':'Harry'}
+  if my_id ==2:
+    teacher= {'id':my_id,'name':'Ali'}
+  if my_id ==3:
+    teacher= {'id':my_id,'name':'Sonam'}
+  return render(request,'teacher/detail.html',teacher)
+
+def show_subdetails(request,my_id,my_subid):
+  if my_id ==1 and my_subid==4:
+    teacher= {'id':my_id,'name':'Harry','info':'subdetails'}
+  if my_id ==2 and my_subid==5:
+    teacher= {'id':my_id,'name':'Ali','info':'subdetails'}
+  if my_id ==3 and my_subid==6:
+    teacher= {'id':my_id,'name':'Sonam','info':'subdetails'}
+  return render(request,'teacher/detail.html',teacher)
+
+def show_date(request,year):
+  date={'dt':year}
+  return render(request,'teacher/session.html',date)

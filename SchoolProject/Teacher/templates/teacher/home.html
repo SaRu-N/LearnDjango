@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{%load static%}
+{% block title %}Teacher Form{% endblock title %}
+{% block css%}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'teacher/css/style.css' %}">
+{% endblock css%}
+{%block content %} 
+<h3>Teacher Home Page {{ch}}</h3>
+<a  href="{% url 'details' 1 %}">Teacher 1 Details</a><br>
+<a  href="{% url 'details' 2 %}">Teacher 2 Details</a><br>
+<a href="{% url 'details' 3 %}">Teacher 3 Details</a> <br>
+
+<a href="{% url 'subdetails' 1 4 %}">Teacher 1 Sub Details</a><br>
+<a  href="{% url 'subdetails' 2 5 %}">Teacher 2 Sub Details</a><br>
+<a href="{% url 'subdetails' 3 6 %}">Teacher 3 Sub Details</a><br><br>
+
+<a href="{% url 'showdate' 3624 %}">Session Details</a>
+{% endblock content %}
+{% block button %}
+{% endblock button %}
