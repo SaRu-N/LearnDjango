@@ -27,5 +27,6 @@ urlpatterns = [
     path('fees/',include('fees.urls')),
     path('students/',include('Student.urls')),
     path('enroll/',include('enroll.urls')),
+    path('teacher/',include('Teacher.urls')),
     path('about/',views.about_page,name="aboutdjango"),
 ]

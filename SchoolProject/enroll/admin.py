@@ -10,3 +10,4 @@ class StudentAdmin(admin.ModelAdmin):
 @admin.register(Savestudent)
 class SavestudentAdmin(admin.ModelAdmin):
     list_display= ('id','name','email','password')
+

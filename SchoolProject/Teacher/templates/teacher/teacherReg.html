@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+{load static}
+{% block title %}Teacher Form{% endblock title %}
+{%block content %} 
+<h1>Teacher Registration</h1>
+<form method="post" novalidate>
+    {%csrf_token%}
+    <table>
+        {{form}}
+    </table>
+    <input type="submit" value ='Register'>
+</form>
+{% endblock content %}
+{% block button %}
+{% endblock button %}

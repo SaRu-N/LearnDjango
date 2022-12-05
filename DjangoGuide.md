@@ -106,8 +106,34 @@ syntax:
 ##### Saving data in database using django form api
 
 - create model class and make related form
+
 - register model class in admins.py
-- 
+
+- `form .models import models_name`
+  inside function:
+
+  `if formvar.is_valid():`
+
+  ​		`var1= formvar.cleaned_data['fieldname1']`
+
+  ​	   `var2= formvar.cleaned_data['fieldname2']`
+
+  `var=model_name(fieldname1=var1,fieldname2=var2)`
+
+  ​        `var.save()`
+
+#### Create Django Form using Model Form
+
+- Create Model class in models.py
+
+- create ModelForm class
+  syntax: in forms.py
+
+  ​	`class ModelFormClassName(forms.ModelForm):`
+
+  ​		`class Meta:`
+  ​				`model=ModelClassName`
+  ​				`fields=['fieldname1','fieldname2','fieldname3']` form comes in the same order 
 
 #### Rendering Templates Files
 
@@ -159,7 +185,7 @@ can directly write "[BASE_DIR / 'templates']" in 'DIRS'
 >
 > reference static files <link href='{%static "filepath"%}'>  whenever needed
 
-#### Create Hyberlink using url tag
+#### Create Hyperlink using url tag
 
 without using url tag
 
