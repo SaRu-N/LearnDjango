@@ -13,6 +13,9 @@
 <br>
  <h3 class="text-center alert-warning">Welcome {{name}} to your profile</h3>
 <br>
+<a href="{% url 'changepass' %}" class="btn btn-warning btn-sm ">Change Password</a>
+<a href="{% url 'changepass1' %}" class="btn btn-warning btn-sm ">Change Password 1</a>
+
 <a href="{% url 'logout' %}" class="btn btn-danger btn-sm ">Logout</a>
 {% endblock content %}
 {% block button %}

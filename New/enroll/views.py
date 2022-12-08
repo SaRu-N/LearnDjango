@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm, SetPasswordForm
 from .forms import SignUpForm
-from django.contrib.auth import login, authenticate, logout 
+from django.contrib.auth import login, authenticate, logout, update_session_auth_hash
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 # Create your views here.
@@ -53,3 +53,37 @@ def user_profile(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/enroll/login/')
+# change password with old password
+def user_changepass(request):
+    if request.user.is_authenticated:
+        if request.method=='POST':
+            fm=PasswordChangeForm(user=request.user, data=request.POST)
+            if fm.is_valid():
+                fm.save()
+                update_session_auth_hash(request, fm.user)
+                messages.success(request,'Password Changed Successfully')
+                return HttpResponseRedirect('/enroll/profile/')
+        else:
+            fm=PasswordChangeForm(user=request.user)
+    else:
+        messages.error(request,"Please Login First!!!")
+
+        return HttpResponseRedirect('/enroll/login/')
+    return render(request,'enroll/changepass.html',{'form':fm})
+# change password without using old password
+def user_changepass1(request):
+    if request.user.is_authenticated:
+        if request.method=='POST':
+            fm=SetPasswordForm(user=request.user, data=request.POST)
+            if fm.is_valid():
+                fm.save()
+                update_session_auth_hash(request, fm.user)
+                messages.success(request,'Password Changed Successfully')
+                return HttpResponseRedirect('/enroll/profile/')
+        else:
+            fm=SetPasswordForm(user=request.user)
+    else:
+        messages.error(request,"Please Login First!!!")
+
+        return HttpResponseRedirect('/enroll/login/')
+    return render(request,'enroll/changepass1.html',{'form':fm})
