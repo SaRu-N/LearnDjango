@@ -2,3 +2,12 @@ a{
     color:white;
    
 }
+.success{
+    color:green;
+}
+.info{
+    color:blue;
+}
+.error{
+    color:red;
+}

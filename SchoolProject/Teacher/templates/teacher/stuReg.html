@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Teacher Form{% endblock title %}
+{%block content %}
+<!-- {% block css %}
+{{ block.super }}
+ <link rel="stylesheet" href="{% static 'teacher/css/style.css' %}">
+{% endblock css %}  -->
+<h1>Student Registration</h1>
+<form method="POST" novalidate>
+    {%csrf_token%}
+    <table>
+        {{fm}}
+    </table>
+    <input type="submit" value ='Register'>
+</form>
+{% if messages %}
+    {% for m in messages %}
+    <span {% if m.tags %} class="alert-{{m.tags}}" {% endif %}>{{m}}<br></span>
+    {% endfor %}
+{% endif %}
+{% endblock content %}
+{% block button %}
+{% endblock button %}

@@ -1,8 +1,11 @@
 from django.contrib import admin
-from . models import Teacher 
+from . models import  User
 # Register your models here.
 
-@admin.register(Teacher)
-class TeacherAdmin(admin.ModelAdmin):
-    list_display= ('id','Name','Email','Phone','Password')
+# @admin.register(Teacher)
+# class TeacherAdmin(admin.ModelAdmin):
+#     list_display= ('id','Name','Email','Phone','Password')
 
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    list_display=('id','student_name','teacher_name','email','password')

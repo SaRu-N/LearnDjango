@@ -3,10 +3,10 @@
 {% block title %}Teacher Form{% endblock title %}
 {%block content %} 
 <h1>Teacher Registration</h1>
-<form method="post" novalidate>
+<form method="POST" novalidate>
     {%csrf_token%}
     <table>
-        {{form}}
+        {{fm}}
     </table>
     <input type="submit" value ='Register'>
 </form>
