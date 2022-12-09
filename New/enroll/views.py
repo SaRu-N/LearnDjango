@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm, SetPasswordForm
-from .forms import SignUpForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm, SetPasswordForm
+from .forms import SignUpForm, EditUserProfileForm
 from django.contrib.auth import login, authenticate, logout, update_session_auth_hash
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -43,7 +43,14 @@ def log_in(request):
 
 def user_profile(request):
     if request.user.is_authenticated:
-        return render(request,'enroll/profile.html',{'name':request.user})
+        if request.method == 'POST':
+            fm=EditUserProfileForm(request.POST,instance=request.user)
+            if fm.is_valid():
+                fm.save()
+                messages.success(request,"Profile Updated Successfully")
+        else:
+            fm=EditUserProfileForm(instance=request.user)
+        return render(request,'enroll/profile.html',{'name':request.user,'form':fm})
     else:
         messages.error(request,"Please Login First!!!")
 
