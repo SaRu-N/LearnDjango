@@ -6,12 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title%} CRUD {% endblock title %}</title> 
+    {% block css %}
     <link rel="stylesheet" href="{% static 'student/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'student/css/all.min.css' %}">
+
+    {% endblock css %}
 </head>
 <body>
   {% include 'student/navbar.html'%}
 <div class="container mt-5">
-{% block content%}<h2 class="text-center alert alert-danger">Function Based View ModelForm CRUD</h2> {% endblock content %}
+{% block content%}<h2 class="text-center alert alert-warning">Function Based View ModelForm CRUD</h2> {% endblock content %}
 </div>
   {% block js%}
   <script src="{% static 'student/js/jquery.js' %} "></script>  

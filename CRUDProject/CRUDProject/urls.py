@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from Student import views 
 urlpatterns = [
-    path('',views.home_page),
+    path('',views.log_in),
+    path('profile/',views.profile,name='profile'),
     path('admin/', admin.site.urls),
     path('student/',include('Student.urls'))
 ]

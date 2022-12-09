@@ -11,9 +11,10 @@
         <form method="POST" novalidate>
                
                     {% csrf_token %}
-                    {{form.as_p}}
-                
-                
+                    {% for fm in form %}
+                    {{fm.label_tag}} {{fm}} <span class="alert-danger">{{fm.errors}}</span><br><br>
+                   {% endfor %}
+                    <!-- {{form.as_p}} -->
                 <input type="submit" class="btn btn-primary" value="Add">
             </form>
     </div>

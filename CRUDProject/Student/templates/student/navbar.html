@@ -1,15 +1,18 @@
 <nav class="navbar navbar-expand-lg bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'homePage' %}">Student</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <!-- <a class="nav-link active" aria-current="page" href="{% url 'homePage' %}">Home</a> -->
-          <a class="nav-link" href="{% url 'addStudent' %}">Add Student</a>
-          <a class="nav-link" href="{% url 'showStudent' %}">Student Details</a>
-        </div>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'homePage' %}">Student</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <!-- <a class="nav-link active" aria-current="page" href="{% url 'homePage' %}">Home</a> -->
+        <a class="nav-link" href="{% url 'addStudent' %}">Add Student</a>
+        <a class="nav-link" href="{% url 'showStudent' %}">Student Details</a>
+        <a class="nav-link" href="{%url 'profile' %}">Profile</a>
+        <a class="nav-link"  href="{% url 'logout' %}">Logout</a>
+
       </div>
     </div>
-  </nav>
+  </div>
+</nav>

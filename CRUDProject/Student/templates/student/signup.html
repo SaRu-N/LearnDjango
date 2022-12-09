@@ -2,7 +2,7 @@
 {% block title%} Student {% endblock title %}
 
 {% block content%}
-{{ block.super }}
+<h3 class="text-center alert alert-info">Sign Up here</h3>
 {% if messages %}
 {% for m in messages %}
     <span {% if m.tags %} class="alert-{{m.tags}}" {% endif %}>{{m}}</span>
@@ -18,12 +18,10 @@
     {% for fm in form %}
      {{fm.label_tag}} {{fm}} {{fm.errors| striptags}}<br><br>
     {% endfor %}
-     <input type="submit" value="Login" class="btn btn-success">
+     <input type="submit" value="Signup" class="btn btn-success">
  </form>
  <br>
- <p class="alert-primary">Not a User?
- <a href="{% url 'signup' %}" class="btn btn-primary btn-sm"> Sign Up</a>
-</p>
+ <a href="{% url 'login' %}" class="btn btn-primary btn-sm">Login</a>
  
  
 {% endblock content%}
