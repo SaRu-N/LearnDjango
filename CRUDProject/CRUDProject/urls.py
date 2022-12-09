@@ -18,7 +18,7 @@ from django.urls import path, include
 from Student import views 
 urlpatterns = [
     path('',views.log_in),
-    path('profile/',views.profile,name='profile'),
+    # path('profile/',views.profile,name='profile'),
     path('admin/', admin.site.urls),
     path('student/',include('Student.urls'))
 ]

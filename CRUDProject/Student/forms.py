@@ -1,6 +1,8 @@
 from django.core import validators
 from django import forms
 from . models import Student
+from django.contrib.auth.models import User 
+from django.contrib.auth.forms import UserChangeForm
 
 class StudentRegistration(forms.ModelForm):
     class Meta:
@@ -14,3 +16,10 @@ class StudentRegistration(forms.ModelForm):
             'Address':forms.TextInput(attrs={'class':'form-control'}),
             'Faculty':forms.TextInput(attrs={'class':'form-control'})
         }
+
+class EditProfileForm(UserChangeForm):
+    password=None
+    class Meta:
+        model=User
+        fields=['username','first_name','last_name','email','date_joined','last_login']
+        labels={'email':'Email','first_name':'First Name','last_name':'Last Name'}

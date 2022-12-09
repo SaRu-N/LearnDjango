@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm, SetPasswordForm
 from django.contrib.auth import login, authenticate, logout, update_session_auth_hash
-from . forms import StudentRegistration
+from . forms import StudentRegistration, EditProfileForm
 from . models import Student
 # Create your views here.
 
@@ -87,7 +87,15 @@ def log_in(request):
 
 def profile(request):
     if request.user.is_authenticated:
-        return render(request,'student/profile.html',{'name':request.user})
+        if request.method== 'POST':
+            fm= EditProfileForm(request.POST, instance=request.user)
+            if fm.is_valid():
+                fm.save()
+                messages.success(request,'Profile Udated Successfully')
+        else:
+            fm=EditProfileForm(instance=request.user)
+        return render(request,'student/profile.html',{'name':request.user,'form':fm})
+        
     else:
         messages.error(request,"Please Login First!!!")
 

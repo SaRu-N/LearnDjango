@@ -12,20 +12,36 @@
      <span {% if m.tags %} class="alert-{{m.tags}}" {% endif %}>{{m}}</span>
  {% endfor %}
  {% endif %}  
+
+ <form method="POST" novalidate>
+    {% csrf_token %}
+    {% if form.non_field_error %}
+        {% for error in form.non_field_error %}
+          <p class="alert-danger">{{error}}</p>
+        {% endfor %}
+    {% endif %}
+
+    {% for fm in form%}
+        {{fm.label_tag}} {{fm}} <p class="alert-danger">{{fm.error}}</p>
+    {% endfor %}
+<input type="submit" value="Update" class="btn btn-success">
+ </form>
+ <br>
+ <br>
  <ul>
-    <li>
+    <!-- <li>
     <a href="{% url 'addStudent' %}" class="btn btn-success btn-sm ">Add Student</a>
     </li>
         <br>
     <li>
         <a href="{% url 'showStudent' %}" class="btn btn-primary btn-sm ">View Students</a>
     </li>
-          <br>
+          <br> -->
     <li> 
     <a href="{% url 'changepass' %}" class="btn btn-warning btn-sm ">Change Password</a>
-    </li>
+    <!-- </li>
         <br>
-    <li>
+    <li> -->
         <a href="{% url 'logout' %}" class="btn btn-danger btn-sm ">Logout</a>
     </li>
 
