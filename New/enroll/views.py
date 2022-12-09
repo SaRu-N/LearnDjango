@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm, SetPasswordForm
-from .forms import SignUpForm, EditUserProfileForm
+from .forms import SignUpForm, EditUserProfileForm, EditAdminProfileForm
 from django.contrib.auth import login, authenticate, logout, update_session_auth_hash
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 # Create your views here.
@@ -44,13 +45,23 @@ def log_in(request):
 def user_profile(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            fm=EditUserProfileForm(request.POST,instance=request.user)
+            if request.user.is_superuser==True:
+                fm=EditAdminProfileForm(request.POST,instance=request.user)
+                users= User.objects.all()
+            else:  
+                users = None
+                fm=EditUserProfileForm(request.POST,instance=request.user)
             if fm.is_valid():
                 fm.save()
                 messages.success(request,"Profile Updated Successfully")
         else:
-            fm=EditUserProfileForm(instance=request.user)
-        return render(request,'enroll/profile.html',{'name':request.user,'form':fm})
+            if request.user.is_superuser ==True:
+                users= User.objects.all()
+                fm=EditAdminProfileForm(instance=request.user)
+            else:
+                users = None
+                fm=EditUserProfileForm(instance=request.user)
+        return render(request,'enroll/profile.html',{'name':request.user.first_name,'form':fm,'users':users})
     else:
         messages.error(request,"Please Login First!!!")
 
@@ -94,3 +105,13 @@ def user_changepass1(request):
 
         return HttpResponseRedirect('/enroll/login/')
     return render(request,'enroll/changepass1.html',{'form':fm})
+
+
+def user_detail(request,id):
+    if request.user.is_authenticated:
+        us= User.objects.get(pk=id)
+        fm=EditAdminProfileForm(instance=us)
+        return render(request,'enroll/userdetail.html',{'form':fm})
+    else:
+        messages.error(request,'please login first!')
+        return HttpResponseRedirect('enroll/login')
