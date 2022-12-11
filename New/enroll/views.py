@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm, SetPasswordForm
 from .forms import SignUpForm, EditUserProfileForm, EditAdminProfileForm
 from django.contrib.auth import login, authenticate, logout, update_session_auth_hash
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 # Create your views here.
@@ -11,7 +11,9 @@ def sign_up(request):
         fm =SignUpForm(request.POST)
         # fm=UserCreationForm(request.POST)
         if fm.is_valid():
-            fm.save()
+            user=fm.save()
+            group=Group.objects.get(name ='Editor')
+            user.groups.add(group)
             messages.success(request,"Your Form has been Submitted Successfully")
     else:
         # fm=UserCreationForm()
@@ -31,7 +33,7 @@ def log_in(request):
                 if user is not None:
                     login(request, user)
                     messages.success(request,"Successful Login")
-                    return HttpResponseRedirect('/enroll/profile/')
+                    return HttpResponseRedirect('/enroll/dashboard/')
                 
         else:
             fm= AuthenticationForm()
@@ -106,6 +108,11 @@ def user_changepass1(request):
         return HttpResponseRedirect('/enroll/login/')
     return render(request,'enroll/changepass1.html',{'form':fm})
 
+def dashboard(request):
+    if request.user.is_authenticated:
+        return render(request, 'enroll/dashboard.html',{'name':request.user.username})
+    else:
+        return HttpResponseRedirect('enroll/login/')
 
 def user_detail(request,id):
     if request.user.is_authenticated:
