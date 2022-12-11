@@ -1,0 +1,20 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+{% block title %}User Login{% endblock title %}
+{% block css %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'enroll/css/style.css' %}"/>
+{% endblock css %}
+{%block content %}
+<h3 class="text-center alert-warning">User Details</h3>
+<form method="post" novalidate>
+    {{form.as_p}}
+</form>
+
+<a href="{% url 'logout' %}" class="btn btn-danger btn-sm ">Logout</a>
+<a href="{% url 'userprofile' %}" class="btn btn-warning btn-sm">Profile</a>
+
+{% endblock content %}
+{% block button %}
+{% endblock button %}
+

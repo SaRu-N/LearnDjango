@@ -1,0 +1,47 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+{% block title %}User Profile{% endblock title %}
+{% block css%}
+    <link rel="stylesheet" href="static {enroll/css/style.css}">
+{% endblock css%}
+{%block content %}
+{%  if users != None%}
+    <h3>List of Users</h3>
+    {% for user in users %}
+    <a href="{% url 'userdetails' user.id %}">{{user}}</a>   <br>
+    {% endfor%}
+{% endif %}
+<br>
+{% if messages %}
+{% for m in messages %}
+    <span {% if m.tags %} class="alert-{{m.tags}}" {% endif %}>{{m}}</span>
+{% endfor %}
+{% endif %} 
+<br>
+<i class="fa-regular fa-user"></i>
+ <h3 class="text-center alert-warning">Welcome {{name}} to your profile</h3>
+<br>
+<form method="POST" novalidate>
+    {% csrf_token %}
+
+   {% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+        <p class="alert-danger">{{error}} </p>
+    {% endfor %}
+   {% endif %}
+
+    {% for fm in form %}
+     {{fm.label_tag}} {{fm}} {{fm.errors| striptags}}<br><br>
+    {% endfor %}
+     <input type="submit" value="Update" class="btn btn-success">
+ </form>
+ <br>
+<a href="{% url 'changepass' %}" class="btn btn-warning btn-sm ">Change Password</a>
+<a href="{% url 'changepass1' %}" class="btn btn-warning btn-sm ">Change Password 1</a>
+
+<a href="{% url 'logout' %}" class="btn btn-danger btn-sm ">Logout</a>
+<br><br>
+{% endblock content %}
+{% block button %}
+{% endblock button %}
+

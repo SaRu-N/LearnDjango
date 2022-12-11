@@ -1,0 +1,28 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+{% block title %}User SignUp {% endblock title %}
+{% block css %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'enroll/css/style.css' %}"/>
+{% endblock css %}
+{%block content %}
+
+<form method="POST" novalidate>
+   {% csrf_token %}
+   {% for fm in form %}
+    {{fm.label_tag}} {{fm}} {{fm.errors| striptags}}<br><br>
+   {% endfor %}
+    <input type="submit" value="Submit" class="btn btn-success">
+</form>
+<br>
+<a href="{% url 'login' %}" class="btn btn-primary btn-sm">Login</a>
+
+{% if messages %}
+{% for m in messages %}
+    <span {% if m.tags %} class="alert-{{m.tags}}" {% endif %}>{{m}}</span>
+{% endfor %}
+{% endif %}  
+{% endblock content %}
+{% block button %}
+{% endblock button %}
+
