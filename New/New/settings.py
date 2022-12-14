@@ -108,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kathmandu'
 
 USE_I18N = True
 
@@ -127,3 +127,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 MESSAGE_TAGS={constants.ERROR:'danger'}
+
+SESSION_COOKIE_AGE = 400
+# these will not override 
+# SESSION_COOKIE_NAME = 'SESSIONNAME'
+# SESSION_COOKIE_PATH = '/home'
+
+# this will make the file based cookie
+# SESSION_ENGINE ='django.contrib.sessions.backends.file'
