@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from datetime import timedelta,datetime
 # Create your views here.
 def setcookie(request):
@@ -29,19 +29,21 @@ def getsignedcookie(request):
 def setsession(request):
    request.session['name']='Session name'
    # setting expiry 0 will make expire_at_browser_close = TRUE
-   request.session.set_expiry(600)
+   # request.session.set_expiry(600)
    request.session['lname']='Session last name'
    return render(request,'customer/setsession.html')
 def getsession(request):
+   
    # name=request.session['name']
    # using get method
-   name=request.session.get('name','no session')
-   lname=request.session.get('lname','no session lastname')
-   keys=request.session.keys()
-   items=request.session.items()
+      name=request.session.get('name')
+      lname=request.session.get('lname')
+      keys=request.session.keys()
+      items=request.session.items()
    # can set and get value
-   age= request.session.setdefault('age','55')
-   return render(request,'customer/getsession.html',{'name':name,'lname':lname,'keys':keys,'items':items,'age':age})
+      # age= request.session.setdefault('age','55')
+      return render(request,'customer/getsession.html',{'name':name,'lname':lname,'keys':keys,'items':items,'age':age})
+   
 def delsession(request):
    # if 'name' in request.session:
    #    del request.session['name']
@@ -56,9 +58,12 @@ def delsession(request):
 
 # to use various methods
 def getsession_methods(request):
-   name= request.session['name']
-   return render(request,'customer/getmethodsession.html',{'name':name})
-
+   if 'name'  in request.session:
+      name= request.session['name']
+      request.session.modified = True
+      return render(request,'customer/getmethodsession.html',{'name':name})
+   else:
+      return HttpResponse("Your Session has Expired")
 def settestcookie(request):
    request.session.set_test_cookie()
    return render(request, 'customer/settestcookie.html')

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session</title>
+</head>
+<body>
+    <h3> Session Display</h3>
+    <h4>{{name}}</h4>
+    <h4>{{lname}}</h4>
+    <h3>Using method in template file</h3>
+    {% for key in request.session.keys %}
+        {{key}}
+    {% endfor %}
+    <br>
+    {% for item in request.session.items %}
+    {{item}}<br>
+    {% endfor %}
+    <hr>
+    <h3>Using methods in Views</h3>
+    {% for key in keys %}
+        {{key}}
+    {% endfor %}
+    <br>
+    {% for key,value in items %}
+        {{key}}:{{value}}<br>
+    {% endfor %}
+<br><br>
+    <a href="{% url 'delsession' %}" class="btn">Delete Session</a>
+
+</body>
+</html>

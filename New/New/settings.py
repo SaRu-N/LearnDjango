@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'enroll',
-    'Customer'
+    'Customer',
+    'student',
 ]
 
 MIDDLEWARE = [
@@ -127,11 +128,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 MESSAGE_TAGS={constants.ERROR:'danger'}
-
-SESSION_COOKIE_AGE = 400
+# Sets cookie age
+# SESSION_COOKIE_AGE = 20
 # these will not override 
 # SESSION_COOKIE_NAME = 'SESSIONNAME'
 # SESSION_COOKIE_PATH = '/home'
 
 # this will make the file based cookie
-# SESSION_ENGINE ='django.contrib.sessions.backends.file'
+SESSION_ENGINE ='django.contrib.sessions.backends.file'
+SESSION_FILE_PATH = BASE_DIR /'session'
