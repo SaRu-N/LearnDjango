@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="1">
+    <title>Page Coounter</title>
+    <link rel="stylesheet" href="{% static 'mycount/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'mycount/css/all.min.css' %}">
+
+</head>
+<body>
+    <script src="{% static 'mycount/js/jquery.js' %} "></script>  
+    <script src="{% static 'mycount/js/popper.js' %} "></script>  
+    <script src="{% static 'mycount/js/bootstrap.min.js' %} "></script>  
+<div class="container d-flex align-items-center justify-content-center "> 
+    <h2 class="text-warning">Page Count:<span class="text-danger">{{count}}</span></h2>
+</div>
+    
+
+</body>
+</html>
