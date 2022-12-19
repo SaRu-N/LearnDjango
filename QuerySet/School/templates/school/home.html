@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static  %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School</title>
+</head>
+<body>
+    <h3>Field Lookups</h3>
+    <table border="1px">
+        <tr>
+        <h3>Student Information</h3>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Roll</th>
+        <th>Address</th>
+        <th>DOB</th>
+        <th>Marks</th>
+        <th>Passed Date</th>
+        <th>Admission Date</th>
+    </tr>
+    {% for st in stu%}
+    <tr>
+        <td>{{st.id}}</td>
+        <td>{{st.name}}</td>
+        <td>{{st.roll}}</td>
+        <td>{{st.address}}</td>
+        <td>{{st.dob}}</td>
+        <td>{{st.marks}}</td>
+        <td>{{st.passed_date}}</td>
+        <td>{{st.adm_time}}</td>       
+    </tr>
+    {% endfor%} 
+    </table>
+</body>
+</html>

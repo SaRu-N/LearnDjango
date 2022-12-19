@@ -21,5 +21,7 @@ urlpatterns = [
     path('',views.home),
     path('passed/',views.passed,name='passedstudent'),
     path('teacher/',views.teacher,name='teacher'),
-    path('company/',include('Company.urls'))
+    path('company/',include('Company.urls')),
+    path('school/',include('School.urls')),
+
 ]
