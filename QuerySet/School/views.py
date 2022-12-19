@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from . models import Student
-from datetime import date, time 
+from datetime import date, time
+from django.db.models import Avg,Min,Max,Sum,Count,StdDev
 # Create your views here.
 def home(request):
-    # sd=Student.objects.all()
+    sd=Student.objects.all()
     # sd=Student.objects.filter(name__exact='Admin')
     # sd=Student.objects.filter(name__iexact='admin')
     # sd=Student.objects.filter(name__contains='a')
@@ -36,9 +37,25 @@ def home(request):
     # sd=Student.objects.filter(adm_time__hour__gt=9)
     # sd=Student.objects.filter(adm_time__minute__gt=40)
 
-    sd=Student.objects.filter(roll__isnull=False)
+    # sd=Student.objects.filter(roll__isnull=False)
+
 
 
     print("SQL Query",sd.query)
     print("\nReturn:",sd)
     return render(request, 'school/home.html',{'stu':sd})
+
+def aggregation(request):
+    sd =Student.objects.all()
+    average= sd.aggregate(Avg('marks'))
+    sum= sd.aggregate(Sum('marks'))
+    max= sd.aggregate(Max('marks'))
+    min= sd.aggregate(Min('marks'))
+    coount= sd.aggregate(Count('marks'))
+    stddev=sd.aggregate(StdDev('marks'))
+    print("\nReturn:",sd)
+    print("\nSQL Query",sd.query)
+
+    context={'stu':sd,'avg':average,'sum':sum,'min':min,'max':max,'count':coount,'stddev':stddev}
+    return render(request, 'school/agg.html',context)
+
