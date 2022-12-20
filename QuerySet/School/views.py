@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from . models import Student
 from datetime import date, time
-from django.db.models import Avg,Min,Max,Sum,Count,StdDev
+from django.db.models import Avg,Min,Max,Sum,Count,StdDev,Q
 # Create your views here.
 def home(request):
     sd=Student.objects.all()
@@ -59,3 +59,18 @@ def aggregation(request):
     context={'stu':sd,'avg':average,'sum':sum,'min':min,'max':max,'count':coount,'stddev':stddev}
     return render(request, 'school/agg.html',context)
 
+def qobject(request):
+    # sd =Student.objects.filter( Q(id=3) & Q(roll=103))
+    # sd =Student.objects.filter( Q(id=3) | Q(roll=104))
+    sd =Student.objects.filter( ~Q(id=3))
+    q=Q(id=3)|Q(roll=102)
+    print("Result",q)
+    print("SQL",sd.query)
+    return render(request, 'school/qobj.html',{'stu':sd})
+def limitQS(request):
+    sd =Student.objects.all()[:3]
+    sd =Student.objects.all()[2:]
+    sd =Student.objects.all()[5:9]
+    # sd =Student.objects.all()[:3:3]
+    print("SQL",sd.query)
+    return render(request, 'school/limitqs.html',{'stu':sd})
