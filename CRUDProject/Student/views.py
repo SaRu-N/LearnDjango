@@ -5,6 +5,9 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, Pass
 from django.contrib.auth import login, authenticate, logout, update_session_auth_hash
 from . forms import StudentRegistration, EditProfileForm
 from . models import Student
+
+
+from django.views.decorators.cache import cache_page
 # Create your views here.
 
 def add_student(request):
@@ -84,7 +87,7 @@ def log_in(request):
         return HttpResponseRedirect('/student/profile/')
 
     return render(request,'student/home.html',{'form':fm})
-
+@cache_page(30)
 def profile(request):
     if request.user.is_authenticated:
         if request.method== 'POST':
