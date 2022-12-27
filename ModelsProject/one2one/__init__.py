@@ -1,0 +1,1 @@
+default_app_config ='one2one.One2OneConfig'
