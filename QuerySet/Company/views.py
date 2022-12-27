@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . models import Customer, Employee
+from . models import Customer, Employee, ProxyEmployee
 # Create your views here.
 def Home(request):
     emp = Employee.objects.all()
@@ -67,3 +67,8 @@ def customer(request):
     return render(request,'company/customer.html',{'cs':cs})
 
 
+def employee(request):
+    # emp= Employee.employees.all()
+    # emp= Employee.employees.get_emp_range(1000,1005)
+    emp= ProxyEmployee.employees.get_emp_range(1002,1009)
+    return render(request,'company/employee.html',{'emp':emp})
