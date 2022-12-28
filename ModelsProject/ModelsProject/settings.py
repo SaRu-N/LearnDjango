@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'one2one',
     'Many2One',
+    'Many2Many',
 ]
 
 MIDDLEWARE = [
