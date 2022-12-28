@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'one2one',
+    'Many2One',
 ]
 
 MIDDLEWARE = [
