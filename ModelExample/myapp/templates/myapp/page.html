@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page</title>
+    <style>
+        table,th,tr,td{
+            border: 1px solid black
+        }
+    </style>
+</head>
+<body>
+    {% if page %}
+   <table>
+    <h3>Page Data</h3>
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Published Date</th>
+        <th>User</th>
+    </tr>
+    {% for pg in page %}
+    <tr>
+        <td>{{pg.page_name}}</td>
+        <td>{{pg.page_cat}}</td>
+        <td>{{pg.page_pdate}}</td>
+        <td>{{pg.user}}</td>
+    </tr>
+    {% endfor %}
+   </table> 
+   {% else %}
+    <h4>No data Found</h4>
+   {% endif %}
+</body>
+</html>
