@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Student',
     'listview',
     'detailview',
+    'editview',
 ]
 
 MIDDLEWARE = [
