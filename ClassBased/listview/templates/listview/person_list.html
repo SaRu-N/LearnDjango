@@ -7,11 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    {% for person in person_list %}
+    <!-- {% for person in person_list %}
         {{person.name}}
         {{person.age}}
         {{person.address}}
         <hr>
-    {% endfor %}
+    {% endfor %} -->
+    {% for person in person_list %}
+    <li><a href="{% url 'detail' person.id %}">{{person.name}}</a></li><br>
+{% endfor %}
 </body>
 </html>

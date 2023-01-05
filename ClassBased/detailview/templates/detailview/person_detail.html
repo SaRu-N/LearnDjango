@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Student Detail Page</h3>
+    <!-- <h5>{{person.id}}</h5>
+    <h5>{{person.name}}</h5>
+    <h5>{{person.age}}</h5>
+    <h5>{{person.address}}</h5>
+ -->
+ <h5>{{per.id}}</h5>
+    <h5>{{per.name}}</h5>
+    <h5>{{per.age}}</h5>
+    <h5>{{per.address}}</h5>
+<hr>
+{% for person in all %}
+<li><a href="{% url 'detail' person.id %}">{{person.name}}</a></li><br>
+{% endfor %}
+</body>
+</html>
