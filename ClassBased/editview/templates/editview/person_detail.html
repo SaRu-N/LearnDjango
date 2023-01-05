@@ -7,8 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    {{person.name}}
-    {{person.email}}
-    {{person.password}}
+    <table border="1px">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>{{person.name}}</td>
+            <td>{{person.email}}</td>
+            <td><a href="{%url 'delete' person.id %}">Delete</a></td>
+        </tr>
+    </table>
 </body>
 </html>

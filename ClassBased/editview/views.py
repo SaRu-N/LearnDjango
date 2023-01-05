@@ -4,7 +4,7 @@ from .forms import ContactForm,PersonForm
 from . models import Person
 from django.views.generic.edit import FormView,CreateView,UpdateView,DeleteView
 from django.views.generic.base import TemplateView
-from django.views.generic.detail import DetailView
+from django.views.generic import DetailView, ListView
 from django import forms
 # Create your views here.
 
@@ -23,6 +23,7 @@ class ContactFormView(FormView):
 
 class ThankYouView(TemplateView):
     template_name='editview/thankyou.html'
+
 
 # class PersonCreateView(CreateView):
 #     model=Person
@@ -53,6 +54,13 @@ class PersonUpdateView(UpdateView):
     form_class=PersonForm
     template_name='editview/person_form.html'
 
+class PersonDeleteView(DeleteView):
+    model=Person
+    success_url='../../'
+    template_name='editview/delete.html'
 class PersonDetailView(DetailView):
     model=Person
+class PersonListView(ListView):
+    model=Person
+    template_name='editview/person.html'
 
