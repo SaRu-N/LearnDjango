@@ -1,0 +1,29 @@
+{% extends 'student/base.html' %}
+{% block title%} Student {% endblock title %}
+
+{% block content%}
+{{ block.super }}
+{% if messages %}
+{% for m in messages %}
+    <span {% if m.tags %} class="alert-{{m.tags}}" {% endif %}>{{m}}</span>
+{% endfor %}
+{% endif %} 
+<form method="POST" novalidate>
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+        <p class="alert-danger">{{error}} </p>
+    {% endfor %}
+   {% endif %}
+    {% for fm in form %}
+     {{fm.label_tag}} {{fm}} {{fm.errors| striptags}}<br><br>
+    {% endfor %}
+     <input type="submit" value="Login" class="btn btn-success">
+ </form>
+ <br>
+ <p class="alert-primary">Not a User?
+ <a href="{% url 'signup' %}" class="btn btn-primary btn-sm"> Sign Up</a>
+</p>
+ 
+ 
+{% endblock content%}

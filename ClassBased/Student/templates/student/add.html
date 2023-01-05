@@ -1,0 +1,24 @@
+{% extends 'student/base.html' %}
+{% block title%} Add Student {% endblock title %}
+
+{% block content%}
+<h3 class="text-center alert alert-info">Add New Student</h3>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-sm-6">
+        <h5></h5>   
+        <form method="POST" novalidate>
+               
+                    {% csrf_token %}
+                    {% for fm in form %}
+                    {{fm.label_tag}} {{fm}} <span class="alert-danger">{{fm.errors}}</span><br><br>
+                   {% endfor %}
+                    <!-- {{form.as_p}} -->
+                <input type="submit" class="btn btn-primary" value="Add">
+            </form>
+    </div>
+</div>
+<br>
+<br>
+{% endblock content%}
