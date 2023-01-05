@@ -35,9 +35,24 @@ class ThankYouView(TemplateView):
 #         form.fields['name'].widget= forms.TextInput(attrs={'class':'myclass'})
 #         return form
 
+# class PersonUpdateView(UpdateView):
+#     model=Person 
+#     fields =['name','email','password']
+#     success_url='../../thankyou/'
+#     def get_form(self):
+#         form=super().get_form()
+#         form.fields['password'].widget= forms.PasswordInput()
+#         return form
+    
 class PersonCreateView(CreateView):
     form_class=PersonForm
     template_name='editview/person_form.html'
+
+class PersonUpdateView(UpdateView):
+    model=Person
+    form_class=PersonForm
+    template_name='editview/person_form.html'
+
 class PersonDetailView(DetailView):
     model=Person
-    
+
