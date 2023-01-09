@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3> Home Page</h3>
+    {% for p in posts%}
+        <h2>{{p.post_title}}</h2>
+        <h5>{{p.post_cat}}</h5>
+        <p>{{p.post_desc}}</p>
+        <small>{{p.post_pdate}}</small>
+        <hr>
+    {% endfor %}
+
+    <div>
+        <span>
+            {% if posts.has_previous %}
+                <a href="?page={{posts.previous_page_number}}">Previous</a>
+            {% endif %}
+            <span>{{posts.number}}</span>
+            {% if posts.has_next %}
+            <a href="?page={{posts.next_page_number}}">Next</a>
+            {% endif %}
+        </span>
+    </div>
+</body>
+</html>
