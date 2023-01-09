@@ -6,8 +6,8 @@ from . forms import LoginForm
 urlpatterns=[
     path('',TemplateView.as_view(template_name='myapp/home.html'),name='home'),
     path('dashboard/',TemplateView.as_view(template_name='myapp/dashboard.html'),name='dashboard'),
-    path('login/',auth_views.LoginView.as_view(template_name='myapp/login.html',authentication_form=LoginForm),name='login'),
-    path('logout/',auth_views.LogoutView.as_view(template_name='myapp/logout.html'),name='logout'),
-    path('changepass/',auth_views.PasswordChangeView.as_view(template_name='myapp/changepass.html'),name='changepass'),
-    path('changepassdone/',auth_views.PasswordChangeDoneView.as_view(template_name='myapp/changepassdone.html'),name='password_change_done'),
+    path('login/',views.MyLoginView.as_view(),name='login'),
+    path('logout/',views.MyLogoutView.as_view(),name='logout'),
+    path('changepass/',views.MyPasswordChangeView.as_view(),name='changepass'),
+    path('changepassdone/',views.MyPasswordChangeDoneView.as_view(),name='password_change_done'),
 ]
