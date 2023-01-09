@@ -7,25 +7,36 @@
     <title>Document</title>
 </head>
 <body>
-    <h3> Home Page</h3>
-    {% for p in posts%}
+    <h3> {{view}} Home Page</h3>
+    {% if is_paginated %}
+    {% for p in page_obj%}
         <h2>{{p.post_title}}</h2>
         <h5>{{p.post_cat}}</h5>
-        <p>{{p.post_desc}}</p>
+        <p>{{p.post_desc|truncatewords:10}}<a href="{% url 'postcl' p.id %}">Read More</a></p>
         <small>{{p.post_pdate}}</small>
         <hr>
     {% endfor %}
 
     <div>
         <span>
-            {% if posts.has_previous %}
-                <a href="?page={{posts.previous_page_number}}">Previous</a>
+            {% if page_obj.has_previous %}
+                <a href="?page={{page_obj.previous_page_number}}">Previous</a>
             {% endif %}
-            <span>{{posts.number}}</span>
-            {% if posts.has_next %}
-            <a href="?page={{posts.next_page_number}}">Next</a>
+            <!-- <span>page {{page_obj.number}} of {{page_obj.paginator.num_pages}}</span> -->
+            <span>{{page_obj.number}}</span>
+            {% if page_obj.has_next %}
+            <a href="?page={{page_obj.next_page_number}}">Next</a>
             {% endif %}
         </span>
     </div>
+    {% else %}
+    {% for p in post_list%}
+    <h2>{{p.post_title}}</h2>
+    <h5>{{p.post_cat}}</h5>
+    <p>{{p.post_desc|truncatewords:10}}</p><a href="{% url 'postcl' p.id %}">Read More</a>
+    <small>{{p.post_pdate}}</small>
+    <hr>
+{% endfor %}
+    {% endif %}
 </body>
 </html>

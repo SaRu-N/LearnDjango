@@ -19,4 +19,6 @@ from blog import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.post_list,name='home'),
+    path('homecl/', views.PostListView.as_view(),name='homecl'),
+    path('postcl/<int:pk>', views.PostDetailView.as_view(),name='postcl'),
 ]
